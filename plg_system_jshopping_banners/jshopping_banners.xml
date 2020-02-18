@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_JSHOPPING_BANNERS</name>
+    <author>Artem Vasilev - Webmasterskaya</author>
+    <creationDate>18.02.2020</creationDate>
+    <copyright>Copyright (C) 2020 Webmasterskaya. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>dev@webmasterskaya.xyz</authorEmail>
+    <authorUrl>https://webmasterskaya.xyz</authorUrl>
+    <version>__DEPLOY_VERSION__</version>
+    <description>PLG_SYSTEM_JSHOPPING_BANNERS_DESCRIPTION</description>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_jshopping_banners.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_jshopping_banners.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_system_jshopping_banners.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_system_jshopping_banners.sys.ini</language>
+    </languages>
+    <files>
+        <filename plugin="jshopping_banners">jshopping_banners.php</filename>
+        <folder>fields</folder>
+        <folder>forms</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/administrator/components/com_banners/models/fields">
+                <field
+                        name="categories"
+                        type="category"
+                        label="JCATEGORY"
+                        description="PLG_SYSTEM_JSHOPPING_BANNERS_ASSIGNED_CATEGORIES_DESCRIPTION"
+                        extension="com_banners"
+                        multiple="true"
+                        filter="int_array"
+                        class="multipleCategories"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="jshopping_banners">
+            https://webmasterskaya.xyz/update?extension=plg_system_jshopping_banners
+        </server>
+    </updateservers>
+</extension>

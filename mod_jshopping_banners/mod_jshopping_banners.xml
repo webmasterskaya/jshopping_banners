@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="module" client="site" method="upgrade">
+    <name>MOD_JSHOPPING_BANNERS</name>
+    <author>Artem Vasilev - Webmasterskaya</author>
+    <creationDate>18.02.2020</creationDate>
+    <copyright>Copyright (C) 2020 Webmasterskaya. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+    <authorEmail>dev@webmasterskaya.xyz</authorEmail>
+    <authorUrl>https://webmasterskaya.xyz</authorUrl>
+    <version>__DEPLOY_VERSION__</version>
+    <description>MOD_JSHOPPING_BANNERS_DESCRIPTION</description>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_jshopping_banners.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_jshopping_banners.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.mod_jshopping_banners.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.mod_jshopping_banners.sys.ini</language>
+    </languages>
+    <files>
+        <filename module="mod_jshopping_banners">mod_jshopping_banners.php</filename>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/administrator/components/com_banners/models/fields">
+                <field
+                        name="target"
+                        type="list"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_TARGET_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_TARGET_DESCRIPTION"
+                        default="1"
+                        filter="integer"
+                >
+                    <option value="0">JBROWSERTARGET_PARENT</option>
+                    <option value="1">JBROWSERTARGET_NEW</option>
+                    <option value="2">JBROWSERTARGET_POPUP</option>
+                </field>
+
+                <field
+                        name="count"
+                        type="number"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_COUNT_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_COUNT_DESCRIPTION"
+                        default="5"
+                        filter="integer"
+                        class="validate-numeric"
+                />
+
+                <field
+                        name="cid"
+                        type="bannerclient"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_BANNERCLIENT_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_BANNERCLIENT_DESCRIPTION"
+                        filter="integer"
+                />
+
+                <field
+                        name="catid"
+                        type="categories"
+                        label="JCATEGORY"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_CATEGORY_DESCRIPTION"
+                        multiple="true"
+                        filter="int_array"
+                        class="multipleCategories"
+                        addfieldpath="/modules/mod_jshopping_banners/fields"
+                />
+
+                <field
+                        name="tag_search"
+                        type="radio"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_TAG_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_TAG_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        filter="integer"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field
+                        name="ordering"
+                        type="list"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_RANDOMISE_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_RANDOMISE_DESCRIPTION"
+                        default="0"
+                >
+                    <option value="0">MOD_JSHOPPING_BANNERS_VALUE_STICKYORDERING</option>
+                    <option value="random">MOD_JSHOPPING_BANNERS_VALUE_STICKYRANDOMISE</option>
+                </field>
+
+                <field
+                        name="header_text"
+                        type="textarea"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_HEADER_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_HEADER_DESCRIPTION"
+                        filter="safehtml"
+                        rows="3"
+                        cols="40"
+                />
+
+                <field
+                        name="footer_text"
+                        type="textarea"
+                        label="MOD_JSHOPPING_BANNERS_FIELD_FOOTER_LABEL"
+                        description="MOD_JSHOPPING_BANNERS_FIELD_FOOTER_DESCRIPTION"
+                        filter="safehtml"
+                        rows="3"
+                        cols="40"
+                />
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout"
+                       label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESCRIPTION"/>
+                <field name="moduleclass_sfx" type="textarea"
+                       label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESCRIPTION"
+                       rows="3"/>
+                <field name="cache" type="list"
+                       label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESCRIPTION"
+                       default="1">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text"
+                       label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                       description="COM_MODULES_FIELD_CACHE_TIME_DESCRIPTION"
+                       default="900"/>
+                <field name="cachemode" type="hidden"
+                       default="static">
+                    <option value="static"/>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <media destination="mod_jshopping_banners" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+    </media>
+    <updateservers>
+        <server type="extension" priority="1" name="jshopping_banners">
+            https://site.com/update?extension=mod_jshopping_banners
+        </server>
+    </updateservers>
+</extension>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="otherparams">
+            <field
+                    name="categories"
+                    type="categories"
+                    label="PLG_SYSTEM_JSHOPPING_BANNERS_CATEGORIES_LABEL"
+                    description="PLG_SYSTEM_JSHOPPING_BANNERS_CATEGORIES_DESCRIPTION"
+                    filter="int_array"
+                    class="multipleCategories"
+                    default="0"
+            />
+        </fieldset>
+    </fields>
+</form>
