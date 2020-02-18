@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.9" type="package" method="upgrade">
-    <name>JSHOPPING_BANNERS</name>
+    <name>PKG_JSHOPPING_BANNERS</name>
     <packagename>jshopping_banners</packagename>
     <author>Artem Vasilev - Webmasterskaya</author>
     <creationDate>01.02.2020</creationDate>
