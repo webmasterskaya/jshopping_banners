@@ -136,14 +136,9 @@
             </fieldset>
         </fields>
     </config>
-    <media destination="mod_jshopping_banners" folder="media">
-        <folder>css</folder>
-        <folder>js</folder>
-        <folder>images</folder>
-    </media>
     <updateservers>
         <server type="extension" priority="1" name="jshopping_banners">
-            https://site.com/update?extension=mod_jshopping_banners
+            https://webmasterskaya.xyz/update?extension=mod_jshopping_banners
         </server>
     </updateservers>
 </extension>
